@@ -6,9 +6,7 @@
 </head>
 <body>
 <form method="post" action=".">
-    #Template Tag
     {% csrf_token %}
-    #Template Variable
     {{form.as_p}}
     <input type="submit" value="Register" />
 </form>
