@@ -124,6 +124,12 @@ STATICFILES_FINDERS = (
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = "/media/"
 
+# Must install when using paypalrestsdk:
+# On Ubuntu:
+# sudo apt-get install libssl-dev libffi-dev
+# On Mac
+# pip install requests[security]
+
 #Registration
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
@@ -131,9 +137,9 @@ LOGIN_REDIRECT_URL = '/store/'
 
 #Email settings
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = "jayglaz@gmail.com"
-EMAIL_HOST_PASSWORD = "Atlantis1199"
+EMAIL_HOST = "smtp.mailgun.org"
+EMAIL_HOST_USER = "postmaster@sandboxb2760f54e0574780b0958fe55c8cba89.mailgun.org"
+EMAIL_HOST_PASSWORD = "f773d2b90a88007fc2bfef4ed39f842f"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "books@mysterybooks.com"
