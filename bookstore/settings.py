@@ -149,4 +149,13 @@ DEFAULT_FROM_EMAIL = "books@mysterybooks.com"
 SOCIAL_AUTH_FACEBOOK_KEY = '1196843847046400'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'c3820cbe6de5b05169f236219be4e394'
 
+# Sudo apt-get install binutils libproj-dev gdal-bin #must install first
+# Brew install geoip
+# Brew install geos
+# Or
+# pip install geoip
+# pip install geos
+# Or
+# Sudo apt-get install geoip
+# Sudo apt-get install geos
 GEOIP_PATH = 'geo/'
