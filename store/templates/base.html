@@ -11,6 +11,7 @@
 {% bootstrap_styles theme='simplex' type='min.css' %}
 
 {% block bootstrap3_extra_head %}
+    <meta name="google-site-verification" content="JbRst2xg-erWNuNIOLMAkHJV2xINtLAF3ZCGccHyhNg" />
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css">
     {% compress css %}
     <link href="{% static 'base/css/style.css' %}" rel="stylesheet" type="text/css">
@@ -25,7 +26,7 @@
 
 {% block bootstrap3_title %}
     {% block title %}
-        Welcome to Mystery Books!
+        Welcome to Glazier's Books!
     {% endblock %}
 {% endblock %}
 
@@ -39,13 +40,13 @@
                     <span class="icon-bar"> </span>
                     <span class="icon-bar"> </span>
                 </button>
-                <a href="{% url 'index' %}" class="navbar-brand">Mystery Books</a>
+                <a href="{% url 'index' %}" class="navbar-brand">Glazier's Books</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="hvr-curl-top-right"><a href="{% url 'index' %}">Home</a></li>
-                    <li class="hvr-curl-top-right"><a href="#about">About</a></li>
-                    <li class="hvr-curl-top-right"><a href="#contact">Contact</a></li>
+                    <li class="hvr-curl-top-right"><a href="{% url 'products' %}">Products</a></li>
+                    <li class="hvr-curl-top-right"><a href="#contact">Genre</a></li>
                     {% if request.user.is_authenticated %}<li class="hvr-curl-top-right"><a href="{% url 'cart' %}">My Shopping Cart</a></li>{% endif %}
                 </ul>
                 <div class="navbar-form pull-right">
@@ -67,24 +68,10 @@
         <img src="{% static 'base/img/header_full.jpg' %}" class="bg"/>
         <div class="parallax">
             <div class="row">
-                {% block body %}
-                <div class="col-md-8 col-md-offset-2 col-sm-12 maincontent">
-                    <div style= "text-align:center"><h3>Welcome to our store!</h3></div>
-                    {% for book in books %}
-                    <div class="storefront_book_display">
-                    <a href="{% url 'book_details' book.id %}">
-                        <img src="{{ MEDIA_URL }}{{ book.cover_image }}">
-                        <span class="storefront_book_title">{{ book.title }}</span>
-                        <span class="storefront_book_author">{{ book.author }}</span>
-                        </a>
-                        {% if request.user.is_authenticated %}
-                        <span class="storefront_add_to_cart">
-                            <a href="{% url 'add_to_cart' book.id %}">[Add to Cart]</a>
-                        </span>
-                        {% endif %}
-                    </div>
-                    {% endfor %}
-                </div>
+                {% block body %}	
+		<div class="col-md-8 col-md-offset-2 col-sm-12 maincontent">
+                	<p>Hello</p>
+		</div>
                 {% endblock %}
             </div>
         </div>
@@ -92,7 +79,7 @@
 
     <div class="row text-center navbar footer">
         <div class="col-md-12">
-            <p>2015 Mystery Books</p>
+            <p>Glazier's Books</p>
         </div>
     </div>
 

@@ -30,8 +30,10 @@ def store(request):
     context = {
         'books': books,
     }
-    return render(request, 'base.html', context)
+    return render(request, 'products.html', context)
 
+def home(request):
+    return render(request, 'base.html')
 
 def book_details(request, book_id):
     book = get_object_or_404(Book, id=book_id)
@@ -178,15 +180,15 @@ def checkout_paypal(request, cart, orders):
             "payer": {
                 "payment_method": "paypal"},
             "redirect_urls": {
-                "return_url": "http://localhost:8000/store/process/paypal",
-                "cancel_url": "http://localhost:8000/store"},
+                "return_url": "http://18.191.26.33:3000/store/process/paypal",
+                "cancel_url": "http://18.191.26.33:3000/store"},
             "transactions": [{
                 "item_list": {
                     "items": items},
                 "amount": {
                     "total": str(total),
                     "currency": "USD"},
-                "description": "Mystery Books Order."}]})
+                "description": "Glazier's Books Order."}]})
         if payment.create():
             cart_instance = cart.get()
             cart_instance.payment_id = payment.id
