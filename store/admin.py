@@ -1,10 +1,10 @@
 from django.contrib import admin
 
-from .models import Book, Author, BookOrder, Cart, Review
+from .models import Book, Author, BookOrder, Cart, Review, Category
 
 
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'genre', 'price', 'stock')
+    list_display = ('title', 'author', 'category', 'price', 'stock')
 
 
 class AuthorAdmin(admin.ModelAdmin):
@@ -18,9 +18,12 @@ class BookOrderAdmin(admin.ModelAdmin):
 class CartAdmin(admin.ModelAdmin):
     list_display = ('user', 'active', 'order_date')
 
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('genre',)
 
 admin.site.register(Book, BookAdmin)
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(BookOrder, BookOrderAdmin)
 admin.site.register(Cart, CartAdmin)
 admin.site.register(Review)
+admin.site.register(Category, CategoryAdmin)

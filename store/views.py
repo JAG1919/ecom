@@ -13,7 +13,7 @@ import paypalrestsdk, stripe
 import logging
 logger = logging.getLogger(__name__)
 
-from .models import Book, BookOrder, Cart, Review
+from .models import Book, BookOrder, Cart, Review, Category
 from .forms import ReviewForm
 
 
@@ -31,6 +31,37 @@ def store(request):
         'books': books,
     }
     return render(request, 'products.html', context)
+
+def genre(request):
+    #distnct = Book.objects.values(
+    #    'genre'
+    #).annotate(
+    #    name_count=Count('genre')
+    #).filter(name_count=1)
+    #records = Books.objects.filter(first_name__in=[item['genre'] for item in distinct])
+    #genres = []
+    #books = Book.objects.all()
+    #for book in books:
+    #    if book.genre not in genres:
+    #        genres.append(book.genre)
+    #records = Book.objects.order_by('genre').values_list('genre', flat=True).distinct('genre')
+    #context = {
+    #    'records': records,
+    #}
+    category = Category.objects.all()
+    context = {
+        'category': category,
+    }
+    return render(request, 'genre.html', context)
+
+def genreresults(request, genreresults):
+    books = Book.objects.filter(category=genreresults)
+    #books = Book.objects.all()
+    context = {
+        'books': books,
+    }
+    return render(request, 'genreresults.html', context)
+    
 
 def home(request):
     return render(request, 'base.html')

@@ -26,7 +26,7 @@
 
 {% block bootstrap3_title %}
     {% block title %}
-        Welcome to Glazier's Books!
+        Charming Book Astounding Reads
     {% endblock %}
 {% endblock %}
 
@@ -46,7 +46,7 @@
                 <ul class="nav navbar-nav">
                     <li class="hvr-curl-top-right"><a href="{% url 'index' %}">Home</a></li>
                     <li class="hvr-curl-top-right"><a href="{% url 'products' %}">Products</a></li>
-                    <li class="hvr-curl-top-right"><a href="#contact">Genre</a></li>
+                    <li class="hvr-curl-top-right"><a href="{% url 'genre' %}">Genre</a></li>
                     {% if request.user.is_authenticated %}<li class="hvr-curl-top-right"><a href="{% url 'cart' %}">My Shopping Cart</a></li>{% endif %}
                 </ul>
                 <div class="navbar-form pull-right">
@@ -65,12 +65,17 @@
     </nav>
 
     <div class="container-fluid">
-        <img src="{% static 'base/img/header_full.jpg' %}" class="bg"/>
+        <img src="{% static 'base/img/readyourworriesaway.jpg' %}" class="bg"/>
         <div class="parallax">
             <div class="row">
                 {% block body %}	
 		<div class="col-md-8 col-md-offset-2 col-sm-12 maincontent">
-                	<p>Hello</p>
+                	<h1>Welcome to Glazier's Books</h1>
+			    <p> Glazier's Books sells premium books at low cost. We have charming books astounding reads. We also have many genres to choose from to satisfy your needs. We sell all over the United states and offer the best discounts you can ask for.</p>
+			    <h1>Charming Books Astounding Reads</h1>
+			    <p>Are your books getting lonely? Are books lacking in your "to read" pile? If any of these are the case, buy a book for your books. Why let that "to read" pile get any smaller? On our website you can research books that you find entertaining. We have charming books astounding reads. Our shopping cart takes many methods for payment, and you can buy as many books as you want! There is no better way to give your loney books more company, buy a book for your books!</p>
+			    <h1>Tough books thriller endings</h1>
+			    <p> Do you ever get stressed? Read your worries away. Glazier's Books offers books to fit any mood, whether you are having a tough week at work or stuck in line at the DMV. Tough books with thriller endings. Our action books can make you a hero that saves the world, and our Rom Coms will make you laugh and cry. This is the best possible way to relieve stress. We make sure the books are well built before we ship them to ensure you can read in the toughest condition. When ever you have a problem you can come to our website, buy a book for your books, and read your worries away. Charming books astounding reads!</p> 
 		</div>
                 {% endblock %}
             </div>
@@ -80,6 +85,7 @@
     <div class="row text-center navbar footer">
         <div class="col-md-12">
             <p>Glazier's Books</p>
+	    <p>Charming Books Astounding Reads</p>
         </div>
     </div>
 

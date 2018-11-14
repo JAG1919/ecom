@@ -14,12 +14,18 @@ class Author(models.Model):
 def cover_upload_path(instance, filename):
     return '/'.join(['books', str(instance.id), filename])
 
+class Category(models.Model):
+    genre = models.CharField(max_length=50, default='')
+
+    def __unicode__(self):
+        return "%s" % (self.genre)
+
 
 class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(Author)
     description = models.TextField()
-    genre = models.CharField(max_length=50)
+    category = models.ForeignKey(Category)
     publish_date = models.DateField(default=timezone.now)
     price = models.DecimalField(decimal_places=2, max_digits=8)
     stock = models.IntegerField(default=0)
